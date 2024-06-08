@@ -63,35 +63,15 @@ This project uses an Arduino to interface with a Passive Infrared (PIR) motion s
 3. **Energy Saving:**
    - Turn off devices when no motion is detected to save power.
 
-## Support
-
-For any issues or further assistance, please contact us:
-
-- 🌐 [Projects Learner](https://projectslearner.com)
-- 📧 Email: projectslearner@gmail.com
-- 📸 Instagram
-- 📘 Facebook
-- ▶️ YouTube
-- 📘 LinkedIn
-
-Made for you with ❣️ from ProjectsLearner.
-
-## Expected Serial Monitor Output
-
-- When the PIR sensor detects motion:
-  ```
-  Motion Detected!
-  ```
-
-- When no motion is detected:
-  ```
-  No Motion
-  ```
-
-This output provides immediate and clear feedback on the sensor and relay status, making it easy to monitor and debug the system.
-
 ---
 
-### Summary
+### Whether you're working on electronics projects, IoT applications, or robotics innovations, Projects Learner is your go-to platform for guidance and expertise.
 
-This project offers a practical introduction to using PIR sensors and relay modules with Arduino. By following the instructions, you can create a responsive system that reacts to motion, suitable for various automation and security applications.
+🌐 [projectslearner.com](https://www.projectslearner.com)  
+📧 [projectslearner@gmail.com](mailto:projectslearner@gmail.com)  
+📸 [Instagram](https://www.instagram.com/projectslearner/)  
+📘 [Facebook](https://www.facebook.com/projectslearner)  
+▶️ [YouTube](https://www.youtube.com/@ProjectsLearner)  
+📘 [LinkedIn](https://www.linkedin.com/in/projectslearner)  
+
+## Made for you with ❣️ from ProjectsLearner
