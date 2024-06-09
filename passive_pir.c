@@ -5,26 +5,24 @@
     Website : https://projectslearner.com/learn/arduino-uno-pir-passive-infrared-motion-sensor
 */
 
-int sensorPin = 10;  // Define the PIR sensor pin
-int relayPin = 12;   // Define the relay pin
+int pirPin = 2; // PIR sensor connected to digital pin 2
+int ledPin = 13; // LED connected to digital pin 13
 
 void setup() {
-  Serial.begin(9600);  // Initialize Serial communication at 9600 baud rate
-  pinMode(sensorPin, INPUT);  // Set PIR sensor pin as input
-  pinMode(relayPin, OUTPUT);  // Set relay pin as output
+  pinMode(pirPin, INPUT); // Set pirPin as input
+  pinMode(ledPin, OUTPUT); // Set ledPin as output
+  Serial.begin(9600); // Start the serial communication
 }
 
 void loop() {
-  int value = digitalRead(sensorPin);  // Read the value from the PIR sensor
+  int motionDetected = digitalRead(pirPin); // Read the PIR sensor output
 
-  digitalWrite(relayPin, value);  // Set relay pin state based on PIR sensor value
-
-  // Output the state of the PIR sensor to the Serial Monitor
-  if (value == HIGH) {
-    Serial.println("Motion Detected!");
+  if (motionDetected == HIGH) { // If motion is detected
+    digitalWrite(ledPin, HIGH); // Turn on the LED
+    Serial.println("Motion detected!");
   } else {
-    Serial.println("No Motion");
+    digitalWrite(ledPin, LOW); // Turn off the LED
   }
 
-  delay(500);  // Add a small delay for stability
+  delay(500); // Small delay to avoid rapid triggering
 }

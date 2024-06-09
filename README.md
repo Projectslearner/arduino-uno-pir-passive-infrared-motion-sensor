@@ -1,71 +1,63 @@
-# PIR Motion Sensor with Relay Control and Serial Monitor Feedback
+# PIR Motion Sensor with LED Indicator
 
-## Description
+#### Project Overview
 
-This project uses an Arduino to interface with a Passive Infrared (PIR) motion sensor to control a relay. The relay switches based on the motion detected by the PIR sensor. Additionally, the state of the sensor and relay is displayed on the serial monitor, providing real-time feedback. This setup is ideal for creating automatic control systems, such as lighting or alarms, that respond to motion detection.
+This project uses a Passive Infrared (PIR) motion sensor to detect motion. When motion is detected, an LED lights up, and a message is printed to the Serial Monitor.
 
-## Components Needed
+#### Components Needed
 
-1. **Arduino UNO**
+1. **Arduino Board**
 2. **PIR Motion Sensor**
-3. **Relay Module**
-4. **Jumper Wires**
-5. **Breadboard**
+3. **LED**
+4. **Resistor (for the LED, e.g., 220Ω)**
+5. **Jumper Wires**
+6. **Breadboard (optional)**
 
-## Circuit Wiring
+### Block Diagram
+
+
+
+#### Pin Connections
 
 1. **PIR Motion Sensor:**
-   - **VCC** to Arduino **5V**.
-   - **GND** to Arduino **GND**.
-   - **OUT** (signal pin) to Arduino digital pin **10**.
+   - **VCC**: Connect to Arduino 5V
+   - **GND**: Connect to Arduino GND
+   - **Output**: Connect to Arduino digital pin 2
 
-2. **Relay Module:**
-   - **VCC** to Arduino **5V**.
-   - **GND** to Arduino **GND**.
-   - **IN** (control pin) to Arduino digital pin **12**.
+2. **LED:**
+   - **Anode (+)**: Connect to Arduino digital pin 13 through a current-limiting resistor (e.g., 220Ω)
+   - **Cathode (-)**: Connect to Arduino GND
 
-## Steps
+#### Instructions
 
-1. **Connect the Components:**
-   - Follow the wiring instructions to connect the PIR sensor and relay module to the Arduino.
+1. **Set Up the Circuit:**
+   - Connect the PIR motion sensor to the Arduino board as per the pin connections mentioned above.
+   - Connect the LED to digital pin 13 on the Arduino with a resistor in series to limit the current.
+   - Ensure all components are properly grounded and connected to the power supply.
 
-2. **Upload the Code:**
-   - Open the Arduino IDE.
-   - Write or paste the code into the IDE.
-   - Select the correct board and port from the Tools menu.
-   - Upload the code to the Arduino board.
+2. **Initialize the System:**
+   - Configure the PIR sensor pin as an input.
+   - Configure the LED pin as an output.
+   - Start serial communication at a baud rate of 9600 to enable data transmission between the Arduino and a connected device (e.g., computer).
 
-3. **Monitor the Output:**
-   - Open the Serial Monitor from the Arduino IDE to observe the real-time status of the sensor and relay.
-   - The Serial Monitor will display "Motion Detected!" when the PIR sensor detects motion and "No Motion" when there is no motion detected.
+3. **Read Sensor Values:**
+   - In the `loop()` function, read the digital output value from the PIR motion sensor connected to the specified digital pin (2).
+   - Print the motion detection status to the Serial Monitor for real-time feedback.
 
-## Project Operation
+4. **Check for Motion:**
+   - If the PIR sensor detects motion (output is HIGH), turn on the LED and print "Motion detected!" to the Serial Monitor.
+   - If no motion is detected (output is LOW), turn off the LED.
 
-- **Initialization:**
-  - The Arduino is set up to read the state of the PIR sensor and control the relay module.
-  - Serial communication is initiated at a baud rate of 9600 bps for monitoring.
+5. **Delay and Repeat:**
+   - Use the `delay()` function to introduce a short delay (e.g., 500 milliseconds) between sensor readings, ensuring stability and preventing rapid triggering.
 
-- **Motion Detection:**
-  - The PIR sensor detects infrared signals from moving objects.
-  - When motion is detected, the relay is activated, turning on any connected devices.
-  - The state of the sensor and relay is displayed on the Serial Monitor.
+#### Applications
 
-- **No Motion:**
-  - When no motion is detected, the relay is deactivated, turning off any connected devices.
-  - The Serial Monitor updates to reflect this status.
-
-## Applications
-
-1. **Security Systems:**
-   - Automatically activate alarms or lights when motion is detected.
-2. **Home Automation:**
-   - Control appliances or lighting systems based on presence.
-3. **Energy Saving:**
-   - Turn off devices when no motion is detected to save power.
+- **Security Systems:** Use the setup to detect motion and trigger alarms or notifications in security systems.
+- **Automated Lighting:** Integrate the motion sensor with lighting systems to turn lights on when motion is detected and off when no motion is detected.
+- **Interactive Projects:** Use the motion detection feature in interactive projects and installations.
 
 ---
-
-### Whether you're working on electronics projects, IoT applications, or robotics innovations, Projects Learner is your go-to platform for guidance and expertise.
 
 🌐 [projectslearner.com](https://www.projectslearner.com)  
 📧 [projectslearner@gmail.com](mailto:projectslearner@gmail.com)  
@@ -74,4 +66,4 @@ This project uses an Arduino to interface with a Passive Infrared (PIR) motion s
 ▶️ [YouTube](https://www.youtube.com/@ProjectsLearner)  
 📘 [LinkedIn](https://www.linkedin.com/in/projectslearner)  
 
-## Made for you with ❣️ from ProjectsLearner
+Made for you with ❣️ from ProjectsLearner
