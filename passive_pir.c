@@ -1,28 +1,26 @@
 /*
-    Code by : Projects_learner
-    Project name :  PIR Passive Infrared Motion Sensor using Ardino UNO
-    Modified Date : 06-06-2024
-    Website : https://projectslearner.com/learn/arduino-uno-pir-passive-infrared-motion-sensor
+    Project name : Arduino Uno PIR Motion Sensor
+    Modified Date: 29-06-2024
+    Code by : Projectslearner
+    Website : https://projectslearner.com/learn/arduino-uno-pir-motion-sensor
 */
 
-int pirPin = 2; // PIR sensor connected to digital pin 2
-int ledPin = 13; // LED connected to digital pin 13
+// Pin connected to the output of the PIR motion sensor
+const int pirPin = 2;
 
 void setup() {
-  pinMode(pirPin, INPUT); // Set pirPin as input
-  pinMode(ledPin, OUTPUT); // Set ledPin as output
-  Serial.begin(9600); // Start the serial communication
+  Serial.begin(9600);  // Initialize serial communication
+  pinMode(pirPin, INPUT);  // Set PIR pin as input
 }
 
 void loop() {
-  int motionDetected = digitalRead(pirPin); // Read the PIR sensor output
+  int pirState = digitalRead(pirPin);  // Read PIR sensor state
 
-  if (motionDetected == HIGH) { // If motion is detected
-    digitalWrite(ledPin, HIGH); // Turn on the LED
+  if (pirState == HIGH) {
     Serial.println("Motion detected!");
   } else {
-    digitalWrite(ledPin, LOW); // Turn off the LED
+    Serial.println("No motion detected");
   }
 
-  delay(500); // Small delay to avoid rapid triggering
+  delay(1000);  // Delay for readability
 }
